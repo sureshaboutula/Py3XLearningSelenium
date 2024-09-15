@@ -50,5 +50,5 @@ def test_mini_project_4():
     # <h5 _ngcontent-wjy-c10="" class="id-card-title">Your free trial has expired</h5>
     assert driver.find_element(By.CLASS_NAME, "id-card-title").text == "Your free trial has expired"
     assert driver.current_url == "https://www.idrive360.com/enterprise/account?upgradenow=true"
-    time.sleep(2)
+    #time.sleep(2)
     driver.quit()

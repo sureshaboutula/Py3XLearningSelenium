@@ -34,11 +34,16 @@ def test_mini_project_5():
                                         "//a[contains(normalize-space(), 'Login')]"))
     )
     allure.attach(driver.get_screenshot_as_png(), name="Appointment-Login-Page-Screenshot")
-    driver.find_element(By.ID, "txt-username").send_keys("John Doe")
-    driver.find_element(By.ID, "txt-password").send_keys("ThisIsNotAPassword")
-    driver.find_element(By.ID, "btn-login").click()
+    driver.find_element(By.XPATH, "//input[@class='form-control'][@id='txt-username']").send_keys("John Doe")
+    driver.find_element(By.XPATH, "//input[@id='txt-password']").send_keys("ThisIsNotAPassword")
+
+    WebDriverWait(driver=driver, timeout=3).until(
+        EC.element_to_be_clickable((By.XPATH, "//button[text()='Login']"))
+    )
+
+    driver.find_element(By.XPATH, "//button[@id='btn-login']").click()
     allure.attach(driver.get_screenshot_as_png(), name="Make-appointment-Page-Screenshot")
     assert driver.current_url == "https://katalon-demo-cura.herokuapp.com/#appointment"
     #assert driver.find_element(By.CLASS_NAME, "col-sm-12 text-center").is_displayed()
-    assert driver.find_element(By.TAG_NAME, "h2").text == "Make Appointment"
+    assert driver.find_element(By.XPATH, "//h2[contains(normalize-space(), 'Make Appointment')]").text == "Make Appointment"
     driver.quit()
