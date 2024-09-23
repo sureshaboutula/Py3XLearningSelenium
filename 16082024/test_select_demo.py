@@ -10,8 +10,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 @pytest.mark.positive
-@allure.title("Mini Project 3 - Open SignUp URL of VWO")
-@allure.description("Verify that the URL changes, when user clicks on signup button")
+@allure.title("Mini Project - Select Demo")
+@allure.description("Select Demo to select static dropdown values")
 def test_mini_project_3():
     chrome_options = Options()
     driver = webdriver.Chrome(options=chrome_options)
